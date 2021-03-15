@@ -1,15 +1,16 @@
 
 
-$Resource ='rg-bootcamp-igti'
-$ServerName ='serverdatabasenexxus'
-$DatabaseName ='AdventureWorks_Compress'
-$date = '22-01-2021'
+$Resource ='RgPrd'
+$ServerName ='rgprd-sqlsrv-prd01'
+$DatabaseName ='cress-ac.implanta.net.br'
+$date = '09-02-2021'
 $StorageKeytype ='StorageAccessKey'
-$StorageKey ='eejU1XJc4EN4mtRUr8Kz9cfL6iLCGvW7oAQrQKafMJ3giZeUsuTC0+aFNJec5SHKF83wKTp7g2xuLH0R/on14Q=='
-$BacpacUri ='https://clientesantigos.blob.core.windows.net/backups/'+$DatabaseName +'_'+$date+'.bacpac'
+$StorageKey ='6XDERJnF6V34xAKomrppUbbOXhQRwkkb6Yz9KBrQvjvzVf+Ob+Pgi+kV9s0zE9FY8E4Wvwg7QEfDiT3JQmD1aw=='
+$BacpacUri ='https://imdevblob02.blob.core.windows.net/bases/'+$DatabaseName +'_Antes_Migracao.bacpac'
 
 
 $User = 'wesley.neves@implantainformatica.com.br'
 $pass = 'karina_96086512'
+$securePassword = ConvertTo-SecureString -String $pass -AsPlainText -Force
 
-New-AzSqlDatabaseExport -ResourceGroupName $Resource -ServerName $ServerName-DatabaseName $DatabaseName -StorageKeyType $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri  -AdministratorLogin $User -AdministratorLoginPassword $pass
+New-AzSqlDatabaseExport -ResourceGroupName $Resource -ServerName $ServerName-DatabaseName $DatabaseName -StorageKeyType $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri  -AdministratorLogin $User -AdministratorLoginPassword $securePassword

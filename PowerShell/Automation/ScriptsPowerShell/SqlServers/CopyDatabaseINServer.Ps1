@@ -1,11 +1,11 @@
 
 
 $ResourceGroup ='rg-bootcamp-igti'
-$Servername = 'serverdatabasenexxus-dev'
+$Servername = '?'
 $databaseName =''
 $location ='East US'
-$UserAdmim = 'Wesley'
-$Password ='W&$L&1N&V&$_96086512'
+$UserAdmim = '?'
+$Password ='?'
 
 $targetResuceGroup =''
 $targetServerName =''
