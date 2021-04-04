@@ -23,10 +23,10 @@ $databases_a_deletar =
 #Variaveis de definição
 
 $ServerName = 'rgprd-sqlsrv-prd01'
-$resourceGroupName = 'RgPrd'
+$resourceGroupName = '?'
 
-$User = 'implanta.net'
-$pass = 'M@st3rP0w3r@zur3Prd'
+$User = '?'
+$pass = '?'
 $securePassword = ConvertTo-SecureString -String $pass -AsPlainText -Force
 $waitDelay = 10
 

@@ -47,11 +47,11 @@ $databases_a_migrar = 'apresentacao-siscaf.implanta.net.br',
 
 #Variaveis de definição
 
-$ServerName = 'rgprd-sqlsrv-prd01'
+$ServerName = '?'
 $TargetElasticPoolName ='rgprd-elspool-prd01'
 
 
-$resourceGroupName = 'RgPrd'
+$resourceGroupName = '?'
 
 
 

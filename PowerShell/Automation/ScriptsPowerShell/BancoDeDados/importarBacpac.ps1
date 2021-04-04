@@ -1,20 +1,20 @@
 
 
-$Resource ='RgPrd'
+$Resource ='?'
 $ServerName ='rgprd-sqlsrv-prd01'
-$DatabaseName ='cau-sp.implanta.net.br'
+$DatabaseName ='?'
 
 $database = Get-AzSqlDatabase -ResourceGroupName $Resource  -ServerName $ServerName  -DatabaseName $DatabaseName
 
 
 
 $StorageKeytype ='StorageAccessKey'
-$StorageKey ='6XDERJnF6V34xAKomrppUbbOXhQRwkkb6Yz9KBrQvjvzVf+Ob+Pgi+kV9s0zE9FY8E4Wvwg7QEfDiT3JQmD1aw=='
+$StorageKey ='?'
 $BacpacUri ='https://imdevblob02.blob.core.windows.net/export/'+$DatabaseName +'_Export.bacpac'
 
 
-$User = 'wesley.neves@implantainformatica.com.br'
-$pass = 'karina_96086512'
+$User = '?'
+$pass = '?'
 $securePassword = ConvertTo-SecureString -String $pass -AsPlainText -Force
 
 $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $Resource -ServerName $ServerName-DatabaseName $DatabaseName -StorageKeyType $StorageKeytype -StorageKey $StorageKey -StorageUri $BacpacUri  -AdministratorLogin $User -AdministratorLoginPassword $securePassword

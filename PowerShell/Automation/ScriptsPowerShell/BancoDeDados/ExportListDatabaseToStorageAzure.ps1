@@ -39,17 +39,17 @@ $databases_a_arquivar =
 'cra-sp.conversor-incremental';
 
 
-$Resource = 'RgPrd'
+$Resource = '?'
 $ServerName = 'rgprd-sqlsrv-prd01'
 
 
 $StorageKeytype = 'StorageAccessKey'
-$StorageKey = 'THfeMPPKePYDc0MGQ9Hv24eyc61HbfZH6HoselZCzlAL+BOpbckbKSLCD/gj+qvWb8lJVEtHuZo1yXTp61Z0ig=='
+$StorageKey = '?'
 $BacpacUrl_Base = 'https://rgprdbkpclientesantigos.blob.core.windows.net/bases-conversao'
 
 
-$User = 'implanta'
-$pass = 'Dev#Infra*!mpl@nt@112020'
+$User = '?'
+$pass = '?'
 $securePassword = ConvertTo-SecureString -String $pass -AsPlainText -Force
 $waitDelay = 10
 
