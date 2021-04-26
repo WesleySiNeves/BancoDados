@@ -1,20 +1,16 @@
 
-$databases_a_consertar =  'apresentacao-siscaf.implanta.net.br',
-'treinamento-siscaf.implanta.net.br',
-'patrimonio-df.implanta.net.br',
-'cra-sp.implanta.net.br-ESPELHO',
-'cro-sp.implanta.net.br-ESPELHO',
-'oab-ba.implanta.net.br-ESPELHO';
-
 #Variaveis de definição
 
 $resourceGroup ='RgPrd'
 $serverName ='rgprd-sqlsrv-prd01'
 
-  foreach($dbName in $databases_a_consertar)
+
+$databasesInServer = Get-AzSqlDatabase -ResourceGroupName $resourceGroup  -ServerName $serverName 
+
+  foreach($dbName in $databasesInServer)
   {
 
-    $resource = Get-AzResource -Name $dbName -ResourceGroup $resourceGroup
+    $resource = Get-AzResource -Name $dbName.DatabaseName -ResourceGroup $resourceGroup
 
     $tags = @{}
 
