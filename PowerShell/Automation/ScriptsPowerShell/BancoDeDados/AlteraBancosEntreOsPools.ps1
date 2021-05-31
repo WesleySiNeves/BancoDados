@@ -7,7 +7,7 @@ $databases_a_migrar =
 
 #Variaveis de definição
 
-$ServerName = 'rgprd-sqlsrv-prd01'
+$ServerName = '?'
 
 
 $resourceGroupName = 'RgPrd'

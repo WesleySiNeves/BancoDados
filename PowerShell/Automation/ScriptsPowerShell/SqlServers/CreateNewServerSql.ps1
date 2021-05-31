@@ -1,6 +1,6 @@
 
 $ResourceGroup ='rg-bootcamp-igti'
-$Servername = 'serverdatabasenexxus-dev'
+$Servername = '?'
 $location ='East US'
 $UserAdmim = '?'
 $Password ='?'

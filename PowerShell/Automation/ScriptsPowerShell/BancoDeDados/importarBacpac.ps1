@@ -1,7 +1,7 @@
 
 
 $Resource ='?'
-$ServerName ='rgprd-sqlsrv-prd01'
+$ServerName ='?'
 $DatabaseName ='?'
 
 $database = Get-AzSqlDatabase -ResourceGroupName $Resource  -ServerName $ServerName  -DatabaseName $DatabaseName
@@ -10,7 +10,7 @@ $database = Get-AzSqlDatabase -ResourceGroupName $Resource  -ServerName $ServerN
 
 $StorageKeytype ='StorageAccessKey'
 $StorageKey ='?'
-$BacpacUri ='https://imdevblob02.blob.core.windows.net/export/'+$DatabaseName +'_Export.bacpac'
+$BacpacUri ='?/export/'+$DatabaseName +'_Export.bacpac'
 
 
 $User = '?'

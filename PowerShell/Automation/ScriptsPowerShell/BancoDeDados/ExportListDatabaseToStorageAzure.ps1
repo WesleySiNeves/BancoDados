@@ -40,12 +40,12 @@ $databases_a_arquivar =
 
 
 $Resource = '?'
-$ServerName = 'rgprd-sqlsrv-prd01'
+$ServerName = '?'
 
 
 $StorageKeytype = 'StorageAccessKey'
 $StorageKey = '?'
-$BacpacUrl_Base = 'https://rgprdbkpclientesantigos.blob.core.windows.net/bases-conversao'
+$BacpacUrl_Base = '?/bases-conversao'
 
 
 $User = '?'

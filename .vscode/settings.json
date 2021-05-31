@@ -2,27 +2,18 @@
     "python.pythonPath": "C:\\Users\\wesley.neves\\Anaconda3\\python.exe",
     "sqltools.connections": [
         {
-            "database": "${workspaceFolder}\\Curso_Python_DSA/Cap06/Notebooks/escola.db",
-            "dialect": "SQLite",
-            "name": "conexao_escola",
-            "driver": "SQLite"
-        },
-        {
-            "mssqlOptions": {
-                "appName": "SQLTools",
-                "useUTC": true,
-                "encrypt": true
+            "pgOptions": {
+                "ssl": true
             },
             "previewLimit": 50,
-            "server": "serverdatabasenexxus.database.windows.net",
-            "port": 1433,
-            "askForPassword": true,
-            "driver": "MSSQL",
-            "name": "serverdatabasenexxus.database.windows.net",
-            "group": "Azure_Pessoal",
-            "database": "AdventureWorks",
+            "server": "rgdev-postgresql-01.postgres.database.azure.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "postgres",
+            "group": "postgres",
+            "database": "postgres",
             "username": "Wesley",
-            "connectionTimeout": 30
+            "password": "W&$L&1N&V&$_96086512"
         }
     ]
 }

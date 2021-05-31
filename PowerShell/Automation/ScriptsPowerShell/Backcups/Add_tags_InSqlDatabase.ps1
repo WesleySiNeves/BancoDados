@@ -1,8 +1,8 @@
 
 #Variaveis de definição
 
-$resourceGroupName ='RgPrd'
-$sqlServerName ='rgprd-sqlsrv-prd01'
+$resourceGroupName ='?'
+$sqlServerName ='?'
 $nameTagSqlPolicy ='sql-backup-policy'
 
 $tags_setedias  = @{"sql-backup-policy"="7dias"}

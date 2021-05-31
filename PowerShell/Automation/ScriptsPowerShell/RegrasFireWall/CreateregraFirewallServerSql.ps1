@@ -5,7 +5,7 @@ $myIp = (Invoke-WebRequest ifconfig.me/ip).Content
 $IpAAdicionar =''
 
 $ResouceGroup = 'rg-bootcamp-igti'
-$ServerName ='serverdatabasenexxus-dev'
+$ServerName ='?'
  
 
 

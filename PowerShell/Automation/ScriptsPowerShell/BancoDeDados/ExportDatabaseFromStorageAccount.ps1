@@ -7,7 +7,7 @@ $DatabaseName ='?'
 $StorageKeytype ='StorageAccessKey'
 
 $StorageKey ='?'
-$BacpacUri ='https://imdevblob02.blob.core.windows.net/export/'+$DatabaseName +'_Export.bacpac'
+$BacpacUri ='?/export/'+$DatabaseName +'_Export.bacpac'
 
 
 $User = '?'

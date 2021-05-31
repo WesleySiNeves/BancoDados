@@ -2,7 +2,7 @@
 #Variaveis de definição
 
 $resourceGroup ='RgPrd'
-$serverName ='rgprd-sqlsrv-prd01'
+$serverName ='?'
 
 
 $databasesInServer = Get-AzSqlDatabase -ResourceGroupName $resourceGroup  -ServerName $serverName 

@@ -138,6 +138,7 @@ R.object_id,
        R.[Nome Tabela],
        R.[Bytes/Row],
        R.[Quantidade Registros],
+	   R.TotalArquivosNoBanco,
        R.TotalMB,
        R.[Total MB Por Schema],
        R.TotalAlocadoMB,
@@ -161,8 +162,8 @@ R.object_id,
                                  ),
        R.ContainerAzureStorageArquivosAnexos,
        R.ConnectionStringAzureStorageArquivosAnexos,
-       R.HorarioMigracaoArquivosAnexosParaAzureStorage,
-       R.TotalArquivosNoBanco
+       R.HorarioMigracaoArquivosAnexosParaAzureStorage
+       
 FROM COnfiguracoes R;
 
 

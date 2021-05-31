@@ -22,7 +22,7 @@ $databases_a_deletar =
 
 #Variaveis de definição
 
-$ServerName = 'rgprd-sqlsrv-prd01'
+$ServerName = '?'
 $resourceGroupName = '?'
 
 $User = '?'

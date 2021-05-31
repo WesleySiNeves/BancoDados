@@ -1,5 +1,12 @@
 
 
+$resourceGroupName ='RgPrd'
+$sqlServerName  ='?'
+$nameTagSqlPolicy ='sql-backup-policy'
+
+$tags_setedias  = @{"sql-backup-policy"="7dias"}
+$tags_6meses  = @{"sql-backup-policy"="6meses"}
+$tags_umano  = @{"sql-backup-policy"="1ano"}
 
 # param 
 # ( 
@@ -7,31 +14,50 @@
 #     [parameter(Mandatory=$true)]  
 #     [string] $resourceGroupName, 
 
-#     # Name of the Azure SQL Database server (Ex: bzb98er9bp) 
+#     # Name of the Azure SQL Database server 
 #     [parameter(Mandatory=$true)]  
 #     [string] $sqlServerName, 
 
-#     # Name of the Azure ElasticPool 
+#     # Name of the Azure tag of policy backup 
 #     [parameter(Mandatory=$true)]  
-#     [string] $nameTagSqlPolicy 
+#     [string] $nameTagSqlPolicy,
+
+#     [parameter(Mandatory=$true)]  
+#     [string] $subscriptionId 
 
 # )
 
-$resourceGroupName ='RgPrd'
-$sqlServerName  ='rgprd-sqlsrv-prd01'
-$nameTagSqlPolicy ='sql-backup-policy'
-# b98b628c-0499-4165-bdb4-34c81b728ca4
+
+$connectionName = "AzureRunAsConnection"
+$servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
+$connectionResult =  Connect-AzAccount -Tenant $servicePrincipalConnection.TenantID `
+                            -ApplicationId $servicePrincipalConnection.ApplicationID   `
+                            -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint `
+                            -ServicePrincipal
+
+$subscription = Get-AzSubscription -SubscriptionId $subscriptionId 
+Set-AzContext $subscription
+
+
 $tags_setedias  = @{"sql-backup-policy"="7dias"}
 $tags_6meses  = @{"sql-backup-policy"="6meses"}
 $tags_umano  = @{"sql-backup-policy"="1ano"}
 
+$IgnoreDB = @('master', '')
 
 
 
-$databasesInServer = Get-AzSqlDatabase -ResourceGroupName $resourceGroupName  -ServerName $sqlServerName
+
+$databasesInServer = Get-AzSqlDatabase -ResourceGroupName $resourceGroupName  -ServerName $sqlServerName | Where-Object { $_.DatabaseName -notin $IgnoreDB }
+
+$ListltrPolicies = $databasesInServer | Get-AzSqlDatabaseLongTermRetentionPolicy
+
+$ListPITRPolicies = $databasesInServer | Get-AzSqlDatabaseBackupShortTermRetentionPolicy
 
 foreach($database in $databasesInServer)
 {
+    $tags.Clear()
+
     $tags = $database.Tags
         
     if(-not $tags)
@@ -73,8 +99,11 @@ foreach($database in $databasesInServer)
         if($database.DatabaseName -match [String]::Join('|','apresentacao-siscaf.implanta.net.br|oab-ba.implanta.net.br-ESPELHO'))
         {
 
-            $retencion_LTR =  Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $sqlServerName -DatabaseName $database.DatabaseName
-            $retencion_PITR = Get-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $sqlServerName -DatabaseName $database.DatabaseName
+            $retencion_LTR =  $ListltrPolicies | Where-Object { $_.DatabaseName -match $database.DatabaseName }
+
+            #   Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $sqlServerName -DatabaseName $database.DatabaseName
+            $retencion_PITR =  $ListPITRPolicies | Where-Object { $_.DatabaseName -match $database.DatabaseName }
+            #Get-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName $resourceGroupName -ServerName $sqlServerName -DatabaseName $database.DatabaseName
 
 
             if($tags[$nameTagSqlPolicy] -eq '7dias')
